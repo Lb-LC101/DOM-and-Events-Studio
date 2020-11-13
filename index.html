@@ -4,6 +4,11 @@
         <title>Flight Simulator</title>
         <link rel = "stylesheet" type = "text/css" href = "styles.css" />
         <script src = "scripts.js"></script>
+        <script>
+            // add load event handler to window
+            window.addEventListener("load", function() {
+                // put DOM code here to ensure elements have been loaded
+                console.log('window loaded');</script>
     </head>
     <body>
         <div style="text-align: center;">
@@ -23,10 +28,10 @@
                 <img src = "LaunchCode_rocketline_white.png" height = "75" width = "75" id = "rocket"/>
             </div>
             <div style = "text-align: center; display: inline-block;">
-                    <button>Up</button>
-                    <button>Down</button>
-                    <button>Right</button>
-                    <button>Left</button>
+                    <button onclick = "upButton()">Up</button>
+                    <button onclick = "downButton()">Down</button>
+                    <button onclick = "rightButton()">Right</button>
+                    <button onclick = "leftButton()">Left</button>
                     <h3>Space Shuttle Height</h3>
                     <p id='spaceShuttleHeight'>0</p><p style = "display: inline-block;"> miles</p>
             </div>
@@ -36,5 +41,27 @@
             <button id = "landing">Land</button>
             <button id = "missionAbort">Abort Mission</button>
     </div>
+            <!Studio Requirement #2->
+    <script> // Take off button click triggers confirmation window
+        document.getElementById("takeoff").addEventListener("click", confirmTakeOff);
+           
+    </script>
+        <!Studio Requirement #3->
+    <script>
+        document.getElementById("landing").addEventListener("click", alertLanding);
+           
+        </script>
+        <!Studio Requirement #4->
+    <script>
+        document.getElementById("missionAbort").addEventListener("click", confirmAbort);
+           
+    </script>
+
+        <!Studio Requirement #5->
+       
+    <script>
+        
+    </script>
+
     </body>
 </html>
