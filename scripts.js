@@ -1,5 +1,7 @@
 // Write your JavaScript code here.
 //Studio Requirement #2
+let loc = 252;
+let hloc = 0;
 function confirmTakeOff(){
     let response = confirm("Confirm the shuttle is ready for takeoff.");
   if (response) {
@@ -52,54 +54,62 @@ function confirmAbort(){
     //Rocket moves 10px in the direction of the button that was clicked 
     //shuttle height should changes by 10,000 miles when up/down buttons are clicked
     function upButton(){
-    let ssh = document.getElementById("spaceShuttleHeight").innerHTML;
-    ssh = Number(ssh) + Number(10000);
-    document.getElementById("spaceShuttleHeight").innerHTML = ssh;
-
-    let loc=document.getElementById("rocket").offsetTop;
-      loc -= 10;
-      if (loc <=-0) {
-        loc +=10;
+    
+    // let loc=document.getElementById("rocket").offsetTop;
+    
+      if (loc >=0) {
+        loc -=10;
+        let ssh = document.getElementById("spaceShuttleHeight").innerHTML;
+        ssh = Number(ssh) + Number(10000);
+        document.getElementById("spaceShuttleHeight").innerHTML = ssh
+        document.getElementById("rocket").style.top = loc + "px";
       }
-      document.getElementById("rocket").style.top = loc + "px";
+      
 
     
     }
-    
+   
      function downButton(){
-      let ssh = document.getElementById("spaceShuttleHeight").innerHTML;
-      ssh = Number(ssh) - Number(10000);
-      document.getElementById("spaceShuttleHeight").innerHTML = ssh;
+     
     
-      let loc=document.getElementById("rocket").offsetTop;
-      loc += 10;
-      if (loc >=256) {
-        loc -=10;
+      //let loc=document.getElementById("rocket").offsetTop;
+      console.log (loc);
+      
+      if (loc <252) {
+        loc +=10;
+        let ssh = document.getElementById("spaceShuttleHeight").innerHTML;
+        ssh = Number(ssh) - Number(10000);
+        document.getElementById("spaceShuttleHeight").innerHTML = ssh;
+        document.getElementById("rocket").style.top = loc + "px";
       }
-      document.getElementById("rocket").style.top = loc + "px";
      }
-     let hloc=0
+     //let hloc=0
      function leftButton(){
-      hloc -= 10;
-      if (hloc <=-190) {
-        hloc +=10;
+    //  hloc -= 10;
+      if (hloc >-190) {
+        console.log(hloc);
+        hloc -=10;      
+        document.getElementById("rocket").style.left = hloc + "px";
       }
-      document.getElementById("rocket").style.left = hloc + "px";
+  
     
      }
 
      function rightButton(){  
-      hloc += 10;
-      if (hloc >=190) {
-        hloc -=10;
+      //hloc += 10;
+      if (hloc <190) {
+        hloc +=10;
+        document.getElementById("rocket").style.left = hloc + "px";
       }
-      document.getElementById("rocket").style.left = hloc + "px";
+   
 
      }
     
      function backToOriginalPosition(){
-       document.getElementById("rocket").style.left = 0;
-       document.getElementById("rocket").style.top = 0;
+       document.getElementById("rocket").style.left = 0 + "px";
+       document.getElementById("rocket").style.top = 252+"px";
+       hloc = 0;
+       loc = 252;
      }
      
 // Remember to pay attention to page loading!
